@@ -1,4 +1,14 @@
-# Notes on Avocado Story
+## Date: August 2, 2023
+
+Yesterday I got a rough prototype using GSAP that I'm happy with. However, in the spirit of progressive enhancement, I turned off JS, and wanted to get the CSS right for reading.
+
+Making layered comic panels responsive to screen-resizing proved to be an arduous task!!
+
+I'm going to take a break, and try to implement a scroll-based neon light animation, based on the gif I made earlier this year.
+
+## Date: July 31, 2023
+
+I fiddled with GSAP & ScrollTrigger in the past couple of days, and concluded that I should use them instead of writing plain JS.
 
 ## Date: July 29, 2023
 
@@ -19,15 +29,18 @@ There are several ways to use 'scroll' eventListener to control animation:
 Over the past two days, I've been going back and forth between 2 and 3, and explored 4 at theoretical level. In the end I think should stick to 3.  
 
 ------------
-Once I finished the title section animation, I feel I have to refactor the code: the might make more sense to delayer the structure... 
+Once I finished the title section animation, I feel I have to ~refactor the code: the might make more sense to delayer the structure...~
+
+I think it's time to introduce GSAP and its ScrollTrigger plugin...
 
 
 ## Date: July 28, 2023
-
+I began to work on Avocado Story.
 Mainly debating whether to use Flex, `margin: 0 auto`, or  `absolute` position to layout the page... Sigh.
 
-# Notes on Thai Floral and Fauna
-Date: June 29, 2023
+## Date: June 29, 2023
+
+### Notes on Thai Floral and Fauna
 
 Thoughts on how to go about this:  
 [x] first, build a pale blue gradient background to represent the sky background  
