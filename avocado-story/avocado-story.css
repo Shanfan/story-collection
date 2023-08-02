@@ -20,7 +20,7 @@ h1 {
     text-align: center;
  }
 
- .speech-bubble {
+.speech-bubble {
     position: absolute;
     font-size: 1.7em;
     color: #222;
@@ -30,7 +30,8 @@ h1 {
     border-radius: 1em;
  }
 
- .speech-bubble:after {
+ .speech-right:after,
+ .speech-left:after{
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -40,9 +41,16 @@ h1 {
 	border: 20px solid transparent;
 	border-top-color: white;
 	border-bottom: 0;
-	border-right: 0;
 	margin-left: -10px;
 	margin-bottom: -20px;
+}
+
+.speech-right:after {
+    border-right: 0;
+}
+
+.speech-left:after {
+    border-left: 0;
 }
 
 
@@ -70,11 +78,9 @@ h1 {
 .scene {
     position: relative;
     width: 100%;
-    height: 100vh;
 }
 
 .content {
-    position: inherit;
     margin: 0 auto;
     padding: 10% 0;
     width: 60vw;
@@ -83,8 +89,6 @@ h1 {
 
 .layered-img {
     position: relative;
-    /* TESTING */
-    border: 1px dashed red;
 }
 
 .layered-img img {
@@ -93,6 +97,15 @@ h1 {
     top: 0;
     transform: translateX(-50%);
 }
+
+.panel {
+    position: relative;
+    width: 100vw;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 90vh;
+}
+
 .panel-img {
     width: 100%;
     max-width: 800px;
@@ -101,49 +114,44 @@ h1 {
 
 #s1a1 {
     background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #s1a1 .panel {
-    position: relative;
-    width: 100vw;
-    height: 90vh;
-    max-width: 800px;
     background-image: url(./assets/scene1.main.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    /* TESTING */
-    border: 1px dashed red;
 }
 
 #s1a1-lamp {
+    --clip: 8%;
     position: absolute;
-    width: 100%;
-    height: 100%;
-
-    /* --clip: 8%;
     clip-path: inset(var(--clip) 0);
-    transform: translate(0%, calc( -1 * var(--clip))); */
+    transform: translate(-50%, calc( -1 * var(--clip)));
+}
+#s1a1-plant {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-height: 100%;
 }
 
 #s1a1-speech1 {
-    transform: translate(10vw, 30vh);
+    top: 40%;
+    left: 1.5rem;
 }
 
 #s1a1-speech2 {
-    transform: translate(50vw, 45vh);
+    top: 45%;
+    right: 1.5rem;
 }
-
-
 
 #s1a2 {
     background-color: #b7e823;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: url("./assets/Ouch.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% -150px;
 }
 
 #s2a1 {
@@ -166,31 +174,55 @@ h1 {
 
 #s2a3 {
     background-color: #eeeedf;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
 }
 #s3 {
-    background-color: white;
+    background-color: #6e9a79;
+}
+
+#s3 .panel {
+    max-height: 700px;
+    background-image: url("./assets/scene3.jpg"); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#s3-speech1 {
+    top: 11vmin;
+    left: 1.5rem;
+}
+
+#s3-speech2 {
+    top: 7vmin;
+    right: 1.5rem;
 }
 
 #s4 {
     background-color: #07143c;
 }
 
+
 #moon {
     position: absolute;
-    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background-color: #F2DC12;
     width: 85vmin;
     height: 85vmin;
     border-radius: 50%;
+    left: 50%;
     transform: translate(-50%, -30%);
     clip-path: inset(30% 0 0 0);
 }
 
 #baby {
-
+    position: absolute;
+    bottom: 0;
+    max-height: 65%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
