@@ -217,6 +217,14 @@ h1 {
     transform: translateX(-50%);
 }
 
+#scroll-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 300vh;
+}
+
 /* Styles for screen width up to 800px */
 @media (max-width: 800px) {
     body {

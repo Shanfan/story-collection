@@ -10,7 +10,7 @@ gsap.set('.scene',{
 
 gsap.set('.content-wrapper', {
   height: window.innerHeight,
-  overflow: 'hidden',
+  position: 'fixed',
   backgroundColor: '#1196e8'
 });
 
@@ -18,7 +18,14 @@ gsap.set(['#s4 img'], {opacity: 0})
 
 const stageColors = ['#0a49b3', '#000', '#b7e823', '#eee1df', "#eeeedf", '#6e9a79', '#07143c'];
 
-let tl = gsap.timeline()
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#scroll-control',
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 7,
+  }
+})
 
 // scene 0
 tl.to(['#s0 .content > img', '#s0 .content > h1'], {y: -100, opacity: 0, stagger: 0.1, delay: 1})
