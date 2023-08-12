@@ -317,3 +317,21 @@ M: Do you think they know each other?
 K: Yeah. They must have been friends.
 
 
+## Warning
+
+TODO: revise these two notices; this language should go to the title page.
+
+Important Notice: Viewer Discretion Advised
+
+Please be aware that our website contains flashing and animated content that may cause discomfort or trigger photosensitive reactions in some individuals. We prioritize your well-being and safety, and we encourage you to exercise caution and consider your own sensitivities before proceeding.
+
+If you are prone to seizures, have a history of photosensitivity, or are uncertain about your reaction to such content, we recommend refraining from further exploration of our site. Your health and comfort are of utmost importance to us.
+
+By proceeding, you acknowledge that you have read and understood this cautionary note, and you voluntarily choose to continue browsing our website. Thank you for your understanding and for prioritizing your well-being.
+
+-- 
+Please be advised that our website features animated background colors that may include flickering graphics. Viewer discretion is advised, as this content could potentially cause discomfort or unease.
+
+If you are sensitive to flickering visuals or uncertain about your reaction, we recommend reconsidering your exploration of our site. Your comfort and well-being are important to us.
+
+By proceeding, you acknowledge this caution and choose to continue at your own discretion. Thank you for your understanding.

@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snail & Cricket</title>
     <link rel="stylesheet" href="./snail-cricket.css">
+    <link rel="stylesheet" href="./snail-cricket-ch1.css">
 </head>
 <body>
 
@@ -38,9 +39,9 @@
         </div>
     </div>
 
-    <div class="container black" id="sn01-disturbed-sleep">
-        <div class="narrow">
-            <img class="panelL" loading="lazy" src="./assets/ch1_sn01_pn02_main.png" />
+    <div class="container black" id="sn01_disturbed_sleep">
+        <div class="narrow layers">
+            <img class="main panelL" loading="lazy" src="./assets/ch1_sn01_pn02_main.png" />
             <img class="onoma" loading="lazy" src="./assets/ch1_sn01_pn02_onoma.png" />    
         </div>
     </div>
@@ -52,13 +53,15 @@
         </div>
     </div>
 
-
     <div class="container white">
         <div class="narrow">
             <p class="narration">In spite of some occasional disturbances,
                 Sara Snail generally lives a stress-free life.</p>
         </div>
-        <img class="hero" loading="lazy" src="./assets/ch1_sn02_pn00.jpg" alt="A sunny day has begun."/>
+        <div class="layers">
+            <img class="hero" loading="lazy" src="./assets/ch1_sn02_pn00.jpg" alt="A sunny day has begun."/>
+            <img class="hero" id="ch1_sn02_flare" src="./assets/ch1_sn02_pn00_shine.png" alt="lens flare" />
+        </div>
     </div>
 
     <div class="container white">
@@ -72,9 +75,9 @@
         </div>
     </div>
 
-    <div class="container white" id="sn03-disturbed-tea">
-        <div class="narrow">
-            <img class="panelL" loading="lazy" src="./assets/ch1_sn03_pn03_main.png" />
+    <div class="container white" id="sn03_disturbed_tea">
+        <div class="narrow layers">
+            <img class="main panelL" loading="lazy" src="./assets/ch1_sn03_pn03_main.png" />
             <img class="onoma" loading="lazy" src="./assets/ch1_sn03_pn03_onoma.png" />
         </div>
     </div>
@@ -96,8 +99,8 @@
             Hello? Excuse you?
         </div>
     </div>
-    <div class="container white narrow" id="sn05_pn01_cathy_debut">
-        <img class="panelM" loading="lazy" src="./assets/ch1_sn05_pn01.png" />
+    <div class="container white narrow">
+        <img id="cathy-debut" class="panelM" loading="lazy" src="./assets/ch1_sn05_pn01.png" />
         <div class="speech-bubble dialog right" id="ch1_sn05_pn01_1">
             Oh, hi!
         </div>
@@ -108,7 +111,7 @@
     <div class="container white narrow" id="sn06_first_contact">
         <img class="hero" loading="lazy" src="./assets/ch1_sn06_pn00.jpg" />
 
-        <div class="speech-bubble dialog" id="ch1_sn06_pn00_2">
+        <div class="dialog speech-bubble" id="ch1_sn06_pn00_2">
             VERY MUCH!
         </div>
         <div class="speech-bubble dialog right"  id="ch1_sn06_pn00_3">
@@ -117,14 +120,14 @@
             Do you not attend your household?
         </div>
         <div class="speech-bubble dialog left-top"  id="ch1_sn06_pn00_4">
-            Um. FWIW, I don't have a household.<br> 
-            Yours is amazing, btw. 
+            Well. I don't have a household.<br> 
+            Yours is amazing though.<br> 
             I wish I had one like that.
         </div>
     </div>
 
-    <div class="container white">
-        <div class="narrow" id="ch1_sn07_pn00">
+    <div class="container white" id="sn07">
+        <div class="narrow layers" id="ch1_sn07_pn00">
             <img class="panelM" loading="lazy" src="./assets/ch1_sn07_pn00.jpg" />
             <div class="speech-bubble dialog">
                 Oh Thanks! I do love my home.<br> 
@@ -134,7 +137,7 @@
                 Let's talk about shuffling then!
             </div>
         </div>
-        <div class="narrow" id="ch1_sn07_pn01">
+        <div class="narrow layers" id="ch1_sn07_pn01">
             <img class="panelM" loading="lazy" src="./assets/ch1_sn07_pn01.jpg" />    
             <div class="speech-bubble dialog right">
                 Sure! Tell me about shuffling~ I love gymnastics! <br>
@@ -160,5 +163,8 @@
         const currentDate = new Date();
         document.querySelector('#thisYear').textContent = `${currentDate.getFullYear()}`;
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./snail-cricket-ch1.js"></script>
 </body>
 </html>
