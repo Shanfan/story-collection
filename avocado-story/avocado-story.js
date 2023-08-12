@@ -23,7 +23,7 @@ let tl = gsap.timeline({
     trigger: '#scroll-control',
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 7,
+    scrub: 0,
   }
 })
 
