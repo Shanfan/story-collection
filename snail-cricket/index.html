@@ -8,8 +8,8 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
+    <header class="row">
+        <div class="wide">
             <h2>The Story of Sara Snail and Cathy Cricket</h2>
         </div>
         <div class="narrow">
@@ -18,14 +18,16 @@
         </div>
     </header>
 
-    <div class="container black">
+    <div class="row black">
         <div class="narrow">
             <p class="narration">It's a crispy summer night.
                 The air finally cools down.
                 The grassland glistens with dewdrops. 
              </p>
         </div>
-        <img class="hero" loading="lazy" src="./assets/ch1_sn00_pn00.jpg" alt="A drawing of a snail sleeping on top of a leaf. A dewdrop drapes down another grass leaf. Moon hangs in the starry sky." />
+        <div class="wide">
+            <img class="hero" loading="lazy" src="./assets/ch1_sn00_pn00.jpg" alt="A drawing of a snail sleeping on top of a leaf. A dewdrop drapes down another grass leaf. Moon hangs in the starry sky." />
+        </div>
         <div class="narrow">
              <p class="narration">
                  Sara Snail turns in early, as usual. 
@@ -39,32 +41,32 @@
         </div>
     </div>
 
-    <div class="container black" id="sn01_disturbed_sleep">
+    <div class="row black" id="sn01_disturbed_sleep">
         <div class="narrow layers">
             <img class="main panelL" loading="lazy" src="./assets/ch1_sn01_pn02_main.png" />
             <img class="onoma" loading="lazy" src="./assets/ch1_sn01_pn02_onoma.png" />    
         </div>
     </div>
 
-    <div class="container black">
+    <div class="row black">
         <div class="narrow">
             <img class="panelM" loading="lazy" src="./assets/ch1_sn01_pn03.png" />
             <img class="panelM" loading="lazy" src="./assets/ch1_sn01_pn04.png" />
         </div>
     </div>
 
-    <div class="container white">
+    <div class="row white">
         <div class="narrow">
             <p class="narration">In spite of some occasional disturbances,
                 Sara Snail generally lives a stress-free life.</p>
         </div>
-        <div class="layers">
+        <div class="wide layers">
             <img class="hero" loading="lazy" src="./assets/ch1_sn02_pn00.jpg" alt="A sunny day has begun."/>
             <img class="hero" id="ch1_sn02_flare" src="./assets/ch1_sn02_pn00_shine.png" alt="lens flare" />
         </div>
     </div>
 
-    <div class="container white">
+    <div class="row white">
         <div class="narrow">
             <p class="narration">She wakes up in the morning,</p>
             <img  class="panelM" loading="lazy" src="./assets/ch1_sn03_pn00.png" />
@@ -75,14 +77,14 @@
         </div>
     </div>
 
-    <div class="container white" id="sn03_disturbed_tea">
+    <div class="row white" id="sn03_disturbed_tea">
         <div class="narrow layers">
             <img class="main panelL" loading="lazy" src="./assets/ch1_sn03_pn03_main.png" />
             <img class="onoma" loading="lazy" src="./assets/ch1_sn03_pn03_onoma.png" />
         </div>
     </div>
 
-    <div class="container white">
+    <div class="row white">
         <div class="narrow">
             <p class="narration">This particular morning, Sara Snail can't take it any more.</p>
             <img class="panelM" loading="lazy" src="./assets/ch1_sn03_pn04.png" />
@@ -93,22 +95,26 @@
         </div>
     </div>
 
-    <div class="container white narrow">
-        <img class="panelL" loading="lazy" src="./assets/ch1_sn05_pn00.jpg" />
-        <div class="speech-bubble left dialog" id="ch1_sn05_pn00">
-            Hello? Excuse you?
+    <div class="row white">
+        <div class="narrow">
+            <img class="panelL" loading="lazy" src="./assets/ch1_sn05_pn00.jpg" />
+            <div class="speech-bubble left dialog" id="ch1_sn05_pn00">
+                Hello? Excuse you?
+            </div>
         </div>
     </div>
-    <div class="container white narrow">
-        <img id="cathy-debut" class="panelM" loading="lazy" src="./assets/ch1_sn05_pn01.png" />
-        <div class="speech-bubble dialog right" id="ch1_sn05_pn01_1">
-            Oh, hi!
-        </div>
-        <div class="speech-bubble dialog left-top" id="ch1_sn05_pn01_2">
-            I'm sorry. Did I disturb you?
+    <div class="row white">
+        <div class="narrow">
+            <img id="cathy-debut" class="panelM" loading="lazy" src="./assets/ch1_sn05_pn01.png" />
+            <div class="speech-bubble dialog right" id="ch1_sn05_pn01_1">
+                Oh, hi!
+            </div>
+            <div class="speech-bubble dialog left-top" id="ch1_sn05_pn01_2">
+                I'm sorry. Did I disturb you?
+            </div>
         </div>
     </div>
-    <div class="container white narrow" id="sn06_first_contact">
+    <div class="row white narrow" id="sn06_first_contact">
         <img class="hero" loading="lazy" src="./assets/ch1_sn06_pn00.jpg" />
 
         <div class="dialog speech-bubble" id="ch1_sn06_pn00_2">
@@ -126,7 +132,7 @@
         </div>
     </div>
 
-    <div class="container white" id="sn07">
+    <div class="row white" id="sn07">
         <div class="narrow layers" id="ch1_sn07_pn00">
             <img class="panelM" loading="lazy" src="./assets/ch1_sn07_pn00.jpg" />
             <div class="speech-bubble dialog">
@@ -146,7 +152,7 @@
         </div>
     </div>
 
-    <div class="container white">
+    <div class="row white">
         <div class="btn-group narrow">
             <button>Back to Cover</button>
             <button>Next</button>
