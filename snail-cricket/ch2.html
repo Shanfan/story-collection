@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snail & Cricket</title>
+    <link rel="stylesheet" href="./snail-cricket.css">
+</head>
+<body>
+
+    <header class="row">
+        <div class="wide">
+            <h2>The Story of Sara Snail and Cathy Cricket</h2>
+        </div>
+        <div class="narrow">
+            <h1>Chapter 2. The Summer Party</h1>
+            <p class="meta">First published: 08-??-2023</p>
+        </div>
+    </header>
+
+    <article>
+
+    </article>
+
+    <nav class="row white">
+        <div class="link-group narrow articleEnd">
+            <a href = "./index.html">Back to Cover</a>
+            <a href="./ch2.html">Next</a>
+        </div>
+    </nav>
+
+    <footer>
+        <div class="meta">
+            ©Copyright Shanfan Huang <span id="thisYear">2020</span>
+        </div>
+    </footer>
+    
+    <script>
+        const currentDate = new Date();
+        document.querySelector('#thisYear').textContent = `${currentDate.getFullYear()}`;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="./snail-cricket-ch1.js"></script>
+</body>
+</html>

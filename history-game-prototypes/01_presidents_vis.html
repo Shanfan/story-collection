@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>prototypes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: #28304D;
+            overflow: hidden;
+        }
+
+        /* Time Points Controller */
+
+        .timePts {
+            display: flex;
+            width: 900px;
+            height: 50px;
+            align-items: center;
+            justify-content: start;
+            /* overflow-x: scroll;
+            overflow-y: hidden; */
+            font-size: 12px;
+        }
+
+        .timePts div {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0 0.15rem;
+            color: rgb(236, 186, 34);
+            transition: all 0.1s linear;
+        }
+
+        .timePts div:hover {
+            cursor: pointer;
+            text-shadow: 0 0 5px rgb(236, 186, 34);
+            font-size: 5em;
+            color: rgb(240, 213, 58);
+            border-bottom: rgb(236, 186, 34) 1px solid;
+        }
+
+        .timePts div:has(+ div:hover),
+        .timePts div:hover+div {
+            font-size: 3em;
+        }
+
+        .timePts div:has(+ div + div:hover),
+        .timePts div:hover+div+div {
+            font-size: 2em;
+        }
+
+        .timePts div span {
+            display: none;
+            position: absolute;
+            font-size: 1rem;
+            top: -1.2em;
+        }
+
+        .timePts div:hover span {
+            display: block;
+            border-top: rgb(236, 186, 34) 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="timePts" class="timePts"></div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+        integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+    <script>
+        function generatePeriod(start, end, step = 1) {
+            const result = [];
+            for (let i = start; i <= end; i += step) {
+                result.push(i);
+            }
+            return result;
+        }
+
+        async function drawTimePts() {
+            const presidentsData = await d3.csv('presidents.csv')
+            const timePtsYears = generatePeriod(1500, 1550);
+            const timePts = d3.select('#timePts').selectAll('div')
+                .data(timePtsYears)
+                .join('div')
+                .html(d => `&#x25CB;<span>${d}</span>`)
+                .attr('data-year', d => d);
+        }
+
+        drawTimePts();
+    </script>
+</body>
+
+</html>

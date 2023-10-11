@@ -1,3 +1,13 @@
+# To-Dos
+[ ] [Chrome Developer: Animate elements on scroll with Scroll-driven animations](https://developer.chrome.com/articles/scroll-driven-animations/)
+
+[ ] Mouse pointer hover on title image to add depth movement
+
+[ ] Make a favicon
+
+[ ] Scroll to shrink the top nav (sticky) before move it out of the view
+
+
 # Story Script
 
 ## Design Summary
@@ -163,7 +173,7 @@ C: "Um. FWIW, I don't have a household. Yours is amazing, btw. I wish I had one 
 
 2. Cricket clapping
 
-    C: Whoa! Right! I see no move. I don't even see any foot!"
+    C: Whoa! Right! I see no move. I don't even see any foot!
 
 ### ch2_sn01_pn00...02
 
@@ -224,14 +234,14 @@ A girl walking through the trail
 
 **Panel Group**
 
-1. S: Er...
+1. S: Um...
 2. C: What?  
 3. S: Don't look now, but we're being photographed.  
-    C: Umm...kay. Is she getting my good side?
-4. S: I've told you hundred times, you are perfectly symmetrical.  
+    C: Okay. Is she getting my good side?
+4. S: You are perfectly symmetrical. 
     C: Right, right. If you say so.  
     S: I do.
-5. C: Well. It's a pity that this is the spot we are being recorded.
+5. C: What a pity that this is the spot we are recorded.
 6. S: What do you mean?
 
 ### ch3_sn02_pn00
@@ -245,7 +255,7 @@ S: I don't know. It's a comfy spot, though.
 C: Come on, don't you see my point? Yellow isn't exactly your best color either.
 
 ### ch3_sn04_pn00
-S: Um... it's taken me quite a while to get up here.
+S: Um... it took me quite a while to get up here.
 C: Ooh... Yeah. Sorry. This is fine.
 
 ### ch3_sn05_pn00
