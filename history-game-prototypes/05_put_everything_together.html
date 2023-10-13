@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>prototypes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #28304D;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+        integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function generatePeriod(start, end, step = 1) {
+            const result = [];
+            for (let i = start; i <= end; i += step) {
+                result.push(i);
+            }
+            return result;
+        }
+
+        async function drawPresidentGraph() {
+            const presidentsData = await d3.csv('presidents.csv')
+            const getYear = d => d.slice(-4)
+            console.log(presidentsData[0])
+
+        }
+        function drawLandTime() {
+            const timePtsYears = generatePeriod(1500, 1600);
+            const timePts = d3.select('#landTime').selectAll('div')
+                .data(timePtsYears)
+                .join('div')
+                .html(d => `&#x25CB;<span>${d}</span>`)
+                .attr('data-year', d => d);
+        }
+
+        drawLandTime();
+
+        drawPresidentGraph();
+    </script>
+</body>
+
+</html>
