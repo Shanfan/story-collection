@@ -26,7 +26,7 @@ order,name,term_start,term_end,party,birth,death,portrait_link
 25,William McKinley,"March 4, 1897","September 14, 1901",Republican,1843,1901,https://en.wikipedia.org/wiki/File:Mckinley.jpg
 26,Theodore Roosevelt,"September 14, 1901","March 4, 1909",Republican,1858,1919,https://en.wikipedia.org/wiki/File:President_Roosevelt_-_Pach_Bros.jpg
 27,William Howard Taft,"March 4, 1909","March 4, 1913",Republican,1857,1930,https://en.wikipedia.org/wiki/File:William_Howard_Taft_-_Harris_and_Ewing.jpg
-28,Woodrow Wilson,"March 4, 1913",3/4/1921,Democratic,1856,1924,"https://en.wikipedia.org/wiki/File:Thomas_Woodrow_Wilson,_Harris_%26_Ewing_bw_photo_portrait,_1919.jpg"
+28,Woodrow Wilson,"March 4, 1913","March 4, 1921",Democratic,1856,1924,"https://en.wikipedia.org/wiki/File:Thomas_Woodrow_Wilson,_Harris_%26_Ewing_bw_photo_portrait,_1919.jpg"
 29,Warren G. Harding,"March 4, 1921","August 2, 1923",Republican,1865,1923,https://en.wikipedia.org/wiki/File:Warren_G_Harding-Harris_%26_Ewing.jpg
 30,Calvin Coolidge,"August 2, 1923","March 4, 1929",Republican,1872,1933,https://en.wikipedia.org/wiki/File:Calvin_Coolidge_cph.3g10777_(cropped).jpg
 31,Herbert Hoover,"March 4, 1929","March 4, 1933",Republican,1874,1964,https://en.wikipedia.org/wiki/File:President_Hoover_portrait.jpg

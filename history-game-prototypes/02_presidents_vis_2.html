@@ -29,13 +29,11 @@
             width: 95vw;
             height: 50px;
             align-items: center;
-            justify-content: start;
-            /* overflow-x: scroll;
-            overflow-y: hidden; */
+            justify-content: center;
             font-size: 8px;
         }
 
-        .timePts div {
+        .timePts>div {
             position: relative;
             display: flex;
             justify-content: center;
@@ -46,7 +44,7 @@
             transition: all 0.1s linear;
         }
 
-        .timePts div:hover {
+        .timePts>div:hover {
             cursor: pointer;
             text-shadow: 0 0 5px rgb(236, 186, 34);
             font-size: 5em;
@@ -54,26 +52,30 @@
             border-bottom: rgb(236, 186, 34) 1px solid;
         }
 
-        .timePts div:has(+ div:hover),
-        .timePts div:hover+div {
+        .timePts>div:has(+ div:hover),
+        .timePts>div:hover+div {
             font-size: 3em;
         }
 
-        .timePts div:has(+ div + div:hover),
-        .timePts div:hover+div+div {
+        .timePts>div:has(+ div + div:hover),
+        .timePts>div:hover+div+div {
             font-size: 2em;
         }
 
-        .timePts div span {
+        .timePts>div>span {
             display: none;
             position: absolute;
             font-size: 1rem;
             top: -1.2em;
         }
 
-        .timePts div:hover span {
+        .timePts>div:hover>span {
             display: block;
             border-top: rgb(236, 186, 34) 1px solid;
+        }
+
+        .timePts>.selected {
+            /* font-size: 12px; */
         }
 
         /* End of Time Points Controller */
@@ -83,7 +85,7 @@
             display: flex;
             width: 95vw;
             height: 300px;
-            align-items: end;
+            align-items: start;
             justify-content: center;
             overflow-x: auto;
         }
@@ -100,24 +102,20 @@
             width: 30px;
         }
 
-        #presidentGraph>div.selected {
-            height: 20px;
-        }
-
         .unaffiliated {
             background-color: white;
         }
 
         .federalist {
-            background-color: #9F5DEB;
+            background-color: #cebde0;
         }
 
         .democratic-republican {
-            background-color: #7B2FD8;
+            background-color: #b792e4;
         }
 
         .whig {
-            background-color: #9FA5E5;
+            background-color: #868ddb;
         }
 
         .democratic {
@@ -129,12 +127,16 @@
         }
 
         .democratic-republican.national-republican {
-            background: linear-gradient(60deg, #7B2FD8 0 49%, #5D2FD8 50% 100%);
+            background: linear-gradient(60deg, #b792e4 0 49%, #5D2FD8 50% 100%);
+        }
+
+        #presidentGraph>div.selected {
+            height: 20px;
         }
 
         .info-card {
             position: absolute;
-            bottom: 20px;
+            top: 20px;
             left: -464px;
             width: 648px;
             padding: 1em;
@@ -150,7 +152,7 @@
             font-size: 12px;
             position: absolute;
             left: 0;
-            bottom: 0;
+            top: 0;
         }
 
         .info-card::after {
@@ -158,7 +160,7 @@
             font-size: 12px;
             position: absolute;
             right: 0;
-            bottom: 0;
+            top: 0;
         }
 
         .info-card>.header {
@@ -195,6 +197,39 @@
             <div>&#x25CB;<span>1775</span></div>
             <div>&#x25CB;<span>1775</span></div>
             <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div>&#x25CB;<span>1775</span></div>
+            <div class="selected">&#x25CF;<span>1775</span></div>
+            <div class="selected">&#x25CF;<span>1775</span></div>
+            <div class="selected">&#x25CF;<span>1775</span></div>
+            <div class="selected">&#x25CF;<span>1775</span></div>
             <div>&#x25CB;<span>1775</span></div>
             <div>&#x25CB;<span>1775</span></div>
             <div>&#x25CB;<span>1775</span></div>
@@ -274,6 +309,7 @@
         async function drawPresidentGraph() {
             const presidentsData = await d3.csv('presidents.csv')
             const getYear = d => d.slice(-4)
+            console.log(presidentsData[0])
 
         }
 
