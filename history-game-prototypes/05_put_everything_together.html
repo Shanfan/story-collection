@@ -142,7 +142,7 @@
         #warTime>div {
             position: absolute;
             background-color: #9A2E22;
-            height: 15px;
+            height: 10px;
             border-radius: 7px;
             transition: all 0.1s linear;
         }
@@ -227,17 +227,6 @@
         integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        // Use year 1750 ~ 1850 time period for now; 
-        // Draw each year as a 8px wide div; adding as many years as the width of the container allows
-        ////// Later: Allow "drag" on timeline to shift the period range forward
-        ////// Figure out the screen dimensions: Text Label 300px; The timelines takes up the rest of the width
-        ////// Later: the period length is calculated based on screen pixels available
-
-        // Divide the control area into four rows, three of which to accomondate the three timelines, one for sliding control
-        ////// The "landTime" on focus indicates the year that's being selected from the slider
-        ////// The "warTime" and "nationTime" 
-        ////// The sliding control should indicate the starting year and the end year within the timeline
-
 
         function drawLandTime() {
             const landTime = d3.select('#landTime').selectAll('div')
@@ -273,8 +262,6 @@
             const dataInView = presidentsData.filter((d) => parseInt(d.term_end.slice(-4)) < 1862)
 
             console.log(dataInView[dataInView.length - 1], dataInView.length)
-
-            // Todo: clean up dual-party presidents
 
             d3.select('#nationTime')
                 .style('transform', 'translateX(' + yearAccessor(dataInView[0].term_start) + 'px)')
@@ -318,7 +305,13 @@
             selectedYear.focus({ focusVisible: true })
             //This doesn't work with Chrome, need a backup
             selectedYear.className = "selected"
+
         })
+
+        // Upon re-evaluation, I don't think the slider is really necessary... sigh.
+        // I think we should just use the dots click as a way for selection. The slider is quite redundant in that.
+        // So first timeline (yellow dots) as Input, and the other two respond to its input
+        // Dragging the entire area moves the timeline forward.
 
 
         ////// Utility Functions ///////////
