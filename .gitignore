@@ -1,3 +1,49 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build output
+dist/
+build/
+out/
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore IDE and editor-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+.env.*.prod
+
+# Ignore dependencies installed via package managers
+# For example, yarn.lock for Yarn, package-lock.json for npm
+yarn.lock
+package-lock.json
+
+# Ignore compiled files or binaries
+*.dll
+*.exe
+*.class
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore user-specific settings for JetBrains IDEs
+.idea/.name
+.idea/.gitignore
+.idea/*.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/tasks.xml
 # Logs
 logs
 *.log
