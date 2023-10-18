@@ -1,3 +1,6 @@
+# Ignore macOS specific files
+.DS_Store
+
 # Ignore node_modules directory
 node_modules/
 
@@ -31,9 +34,6 @@ package-lock.json
 *.dll
 *.exe
 *.class
-
-# Ignore macOS specific files
-.DS_Store
 
 # Ignore user-specific settings for JetBrains IDEs
 .idea/.name
