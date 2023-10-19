@@ -19,15 +19,10 @@
         }
 
         body {
+            position: relative;
             margin: 0;
             padding: 0;
             font-family: 'Courier New', Courier, monospace;
-            /* min-width: 100vw;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center; */
             background-color: var(--bg-deepblue);
         }
 
@@ -73,11 +68,13 @@
             position: absolute;
             width: 100%;
             height: auto;
+            opacity: 0.6;
             transition: all 0.5s ease-in-out;
         }
 
         .profile-img:hover img {
-            transform: scale(1.8) translateY(10%);
+            opacity: 1;
+            transform: scale(1.3) translateY(10%);
         }
 
         .life-span {
@@ -114,32 +111,19 @@
             right: 0;
         }
 
-        /* End of Politics */
+        #backgroundGrid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- <div class="president">
-        <div class="profile-img">
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg/300px-Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg" />
-        </div>
-        <div class="profile-info">
-            <p class="header" data-birth-death="1732-1799">George Washington</p>
-            <p class="info">Unaffiliated</p>
-        </div>
-        <div class="life-span">
-            <div class="time-in-office">
-                <span>term: 1789-1797</span>
-            </div>
-            <span>b: 1732</span>
-            <span>d: 1799</span>
-        </div>
-    </div> -->
-
+    <svg id="backgroundGrid"></svg>
     <div id="container">
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
@@ -150,17 +134,19 @@
         async function drawPresidentGraph() {
             const presidentsData = await d3.csv('__presidents.csv');
 
-            presidentsData.slice(0, 40).forEach(d => drawPresident(d))
-            console.log(presidentsData[0])
+            presidentsData.slice(0, 46).forEach(d => {
+                // draw background grid
+                drawPresident(d)
+            })
         }
 
         drawPresidentGraph();
 
         function drawPresident(data) {
             const term_start = parseInt(data.term_start.slice(-4))
-            const term_end = parseInt(data.term_end.slice(-4))
+            const term_end = (data.term_end.slice(-4))
             const birth = parseInt(data.birth)
-            const death = parseInt(data.death)
+            const death = parseInt(data.death);
             const party = data.party.toLowerCase().replace(/,| /g, "-")
             const yearScale = 8
             const partyColors =
@@ -168,21 +154,22 @@
                 'unaffiliated': '#fff',
                 'federalist': '#cebde0',
                 'democratic-republican': '#b792e4',
-                'democratic-republican--national-republican': 'linear-gradient(60deg, #b792e4 0 49%, #5D2FD8 50% 100%)',
+                'democratic-republican--national-republican': 'linear-gradient(70deg, #b792e4 0 49%, #5D2FD8 50% 100%)',
                 'national-republican': '#5D2FD8',
                 'whig': '#868ddb',
-                'whig--unaffiliated': 'linear-gradient(60deg, #868ddb 0 49%, #FFF 50% 100%)',
+                'whig--unaffiliated': 'linear-gradient(70deg, #868ddb 0 49%, #FFF 50% 100%)',
                 'democratic': '#5963e2',
                 'republican': '#d03dac',
                 'national-union': '#B02FD8',
-                'republican--national-union': 'linear-gradient(60deg, #d03dac 0 49%, #B02FD8 50% 100%)',
-                'national-union--democratic': 'linear-gradient(60deg, #B02FD8 0 49%, #5963e2 50% 100%)',
+                'republican--national-union': 'linear-gradient(70deg, #d03dac 0 49%, #B02FD8 50% 100%)',
+                'national-union--democratic': 'linear-gradient(70deg, #B02FD8 0 49%, #5963e2 50% 100%)',
             }
 
             const president = d3.select('#container')
                 .append('div')
                 .attr('class', `president ${party}`)
                 .style('--party', partyColors[party.replace(/--.*/, '')])
+                .style('transform', `translateX(${(birth - 1732) * yearScale}px)`)
 
             const profileImg = president.append('div')
                 .attr('class', 'profile-img')
@@ -193,11 +180,14 @@
                 .attr('class', 'profile-info')
                 .html(`
                     <p class='header'>${data.name}</p>
-                    <p class='info'>${data.party}</p>
+                    <p class='info'>Affiliation: ${data.party}</p>
                 `)
             const lifeSpan = president.append('div')
                 .attr('class', 'life-span')
-                .style('width', (death - birth) * yearScale + "px")
+                .style('width', isNaN(death) ? ((term_end ? term_end : 2025) - birth) * yearScale + "px" : (death - birth) * yearScale + "px")
+                .style('border-right', isNaN(death) ? 'transparent' : '')
+                .style('border-top-right-radius', isNaN(death) ? '0px' : '')
+                .style('border-bottom-right-radius', isNaN(death) ? '0px' : '')
                 .html(`
                 <span>b: ${birth}</span>
                 <span>d: ${death}</span>
@@ -206,13 +196,12 @@
             const term = lifeSpan.append('div')
                 .attr('class', 'time-in-office')
                 .style('background', partyColors[party])
-                .style('width', (term_end - term_start) * yearScale + "px")
+                .style('width', (term_end ? (term_end - term_start) : 5) * yearScale + "px")
                 .style('transform', `translateX(${(term_start - birth) * yearScale}px)`)
                 .append('span')
                 .html(`
                 term: ${term_start}-${term_end}
             `)
-
         }
 
 
