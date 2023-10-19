@@ -41,9 +41,6 @@
             grid-template-columns: 3em auto;
             grid-template-rows: 3em auto;
             grid-gap: 0.75em;
-            grid-template-areas:
-                "img info"
-                "lifespan";
             align-items: center;
             margin: 1em 0;
         }
@@ -140,40 +137,8 @@
         </div>
     </div>
 
-    <div class="president" style="transform: translateX(70px);">
-        <div class="profile-img">
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/John_Adams_A18236.jpg/300px-John_Adams_A18236.jpg" />
-        </div>
-        <div class="profile-info">
-            <p class="header" data-birth-death="1732-1799">John Adams</p>
-            <p class="info">Federalist</p>
-        </div>
-        <div class="life-span">
-            <div class="time-in-office">
-                <span>term: 1789-1797</span>
-            </div>
-            <span>b: 1732</span>
-            <span>d: 1799</span>
-        </div>
-    </div>
+    <div id="container">
 
-    <div class="president" style="transform: translateX(140px);">
-        <div class="profile-img">
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/John_Quincy_Adams_by_Charles_Osgood.jpg/300px-John_Quincy_Adams_by_Charles_Osgood.jpg" />
-        </div>
-        <div class="profile-info">
-            <p class="header" data-birth-death="1767-1848">John Quincy Adams</p>
-            <p class="info">Democratic-Republican, National Republican</p>
-        </div>
-        <div class="life-span">
-            <div class="time-in-office">
-                <span>term: 1789-1797</span>
-            </div>
-            <span>b: 1732</span>
-            <span>d: 1799</span>
-        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
@@ -182,12 +147,24 @@
     <script>
 
         async function drawPresidentGraph() {
-            const presidentsData = await d3.csv('presidents.csv')
-            const getYear = d => d.slice(-4)
-            console.log(presidentsData[0])
+            const presidentsData = await d3.csv('presidents.csv');
+            const getYear = d => d.slice(-4);
 
+            let dataInView = presidentsData.slice(0, 5);
+            const presidents = d3.select('#container')
+                .selectAll("div")
+                .data(dataInView)
+                .join('div')
+                .attr('class', 'president')
+                ._groups[0];
+
+            console.log(presidents)
         }
 
+        // It seems to have become quite difficult to build up 
+        // the visual design with D3
+        // with nested DOM elements and everything
+        // I'll move to React...
         drawPresidentGraph();
     </script>
 </body>
