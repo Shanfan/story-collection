@@ -14,8 +14,9 @@
             --democratic: #5963e2;
             --republican: #d03dac;
             --bg-pale: #D6D7D9;
-            --bg-deepblue: #28304D;
-            --text-pale: rgb(163, 171, 201);
+            --bg-blue: #28304D;
+            --bg-deepblue: #242941;
+            --text-pale: #707ca9;
         }
 
         body {
@@ -68,13 +69,13 @@
             position: absolute;
             width: 100%;
             height: auto;
-            opacity: 0.6;
+            opacity: 0.85;
             transition: all 0.5s ease-in-out;
         }
 
         .profile-img:hover img {
             opacity: 1;
-            transform: scale(1.3) translateY(10%);
+            transform: scale(1.2) translateY(5%);
         }
 
         .life-span {
@@ -115,14 +116,38 @@
             position: absolute;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 100%;
+            padding: 1rem;
+            /* Same as the presidents' container */
+            height: 5612px;
+            width: 2344px;
+            stroke-dasharray: 4 4;
+        }
+
+        #nationTime {
+            position: relative;
+            padding: 1rem;
+        }
+
+        #nationTime>div {
+            position: absolute;
+            min-width: 2px;
+            height: 10px;
+            border-right: 1px solid #28304D;
+            border-left: 1px solid #28304D;
+            transition: all 0.1s linear;
+        }
+
+        #nationTime>div:hover {
+            cursor: pointer;
+            transform: scale(1.1, 2);
         }
     </style>
 </head>
 
 <body>
-    <svg id="backgroundGrid"></svg>
+    <div id="nationTime"></div>
+    <svg id="backgroundGrid">
+    </svg>
     <div id="container">
     </div>
 
@@ -133,22 +158,10 @@
 
         async function drawPresidentGraph() {
             const presidentsData = await d3.csv('__presidents.csv');
+            const yearAccessor = d => parseInt(d.slice(-4));
+            const partyAccessor = d => d.toLowerCase().replace(/,| /g, "-")
 
-            presidentsData.slice(0, 46).forEach(d => {
-                // draw background grid
-                drawPresident(d)
-            })
-        }
-
-        drawPresidentGraph();
-
-        function drawPresident(data) {
-            const term_start = parseInt(data.term_start.slice(-4))
-            const term_end = (data.term_end.slice(-4))
-            const birth = parseInt(data.birth)
-            const death = parseInt(data.death);
-            const party = data.party.toLowerCase().replace(/,| /g, "-")
-            const yearScale = 8
+            const yearScale = 6;
             const partyColors =
             {
                 'unaffiliated': '#fff',
@@ -164,6 +177,47 @@
                 'republican--national-union': 'linear-gradient(70deg, #d03dac 0 49%, #B02FD8 50% 100%)',
                 'national-union--democratic': 'linear-gradient(70deg, #B02FD8 0 49%, #5963e2 50% 100%)',
             }
+
+            const xAxis = d3.select('#backgroundGrid').append('g')
+                .selectAll('path')
+                .data(presidentsData)
+                .join('path')
+                .attr('d', d => `M${(yearAccessor(d.term_start) - 1732) * yearScale + 3} 0 V${122 * d.order}`)
+                .attr('stroke', '#444962')
+
+            d3.select('#backgroundGrid').append('rect')
+                .attr('x', 0)
+                .attr('y', 40)
+                .attr('width', '100%')
+                .attr('height', 20)
+                .attr('fill', '#242941')
+
+            presidentsData.slice(0, 46).forEach(d => {
+                drawPresident(d, yearScale, partyColors)
+            })
+
+            d3.select('#nationTime')
+                .selectAll('div')
+                .data(presidentsData)
+                .join('div')
+                .style('width', d => d.term_end ? (yearAccessor(d.term_end) - yearAccessor(d.term_start)) * yearScale + "px" : 5 * yearScale + "px")
+                .style('background', d => partyColors[partyAccessor(d.party)])
+                .style('transform', d => `translateX(${(yearAccessor(d.term_start) - 1732) * yearScale + 3}px)`)
+                .attr('data-name', d => d.name)
+                .attr('data-order', d => d.order)
+                .attr('title', d => d.name + ", b:" + d.birth + " - d:" + d.death + ", Party: " + d.party)
+
+            console.log(presidentsData[4].party)
+        }
+
+        drawPresidentGraph();
+
+        function drawPresident(data, yearScale, partyColors) {
+            const term_start = parseInt(data.term_start.slice(-4))
+            const term_end = parseInt(data.term_end.slice(-4))
+            const birth = parseInt(data.birth)
+            const death = parseInt(data.death);
+            const party = data.party.toLowerCase().replace(/,| /g, "-")
 
             const president = d3.select('#container')
                 .append('div')

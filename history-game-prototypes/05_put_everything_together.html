@@ -246,7 +246,6 @@
                 { name: "Spanish-American War", start: "1898", end: "1902" }
             ]
 
-
             d3.select('#warTime').selectAll('div').data(warData)
                 .join('div')
                 .style('left', d => scale(d.start) + "px")
