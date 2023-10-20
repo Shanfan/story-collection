@@ -185,7 +185,7 @@
                 .attr('d', d => `M${(yearAccessor(d.term_start) - 1732) * yearScale + 3} 0 V${122 * d.order}`)
                 .attr('stroke', '#444962')
 
-            d3.select('#backgroundGrid').append('rect')
+            d3.select('#backgroundGrid').append('rect') // Decorative shape to separate two charts
                 .attr('x', 0)
                 .attr('y', 40)
                 .attr('width', '100%')
