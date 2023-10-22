@@ -99,16 +99,15 @@
                     trigger: el,
                     scroller: '.containedView',
                     horizontal: true,
-                    // markers: true,
                     scrub: true,
-                    start: "center 100%",
-                    end: "center 0",
+                    start: "left 100%",
+                    end: "right 0",
                 }
             })
             tl.to(el.querySelector('img'), {
                 keyframes: {
                     "25%": { rotateY: '-45deg', scale: 1, },
-                    "50%": { scale: 1.3 },
+                    "50%": { scale: 1.25 },
                     "75%": { rotateY: '45deg', scale: 1, },
                 },
                 // }).to(el, {
@@ -119,25 +118,6 @@
                 //     }
             }, "<")
         })
-
-        // gsap.to('.albumCovers img', {
-        //     keyframes: {
-        //         "25%": { rotateY: '-45deg', scale: 1 },
-        //         "50%": { scale: 1.5 },
-        //         "75%": { rotateY: '45deg', scale: 1 },
-        //     },
-        //     // stagger: 0.5,
-        //     // duration: 5,
-        //     scrollTrigger: {
-        //         trigger: '.img5',
-        //         scroller: '.containedView',
-        //         horizontal: true,
-        //         markers: true,
-        //         scrub: true,
-        //         start: "center 100%",
-        //         end: "center 0",
-        //     }
-        // })
 
     </script>
 </body>
